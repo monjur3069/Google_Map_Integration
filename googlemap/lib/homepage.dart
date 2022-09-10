@@ -12,22 +12,37 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+
+  List<Marker> _marker = [];
+  final List<Marker> _list = const [
+    Marker(markerId: MarkerId('1'),
+        position: LatLng(23.798393, 90.333131),
+        infoWindow: InfoWindow(title: 'My Position')
+    )
+  ];
+
   Completer<GoogleMapController> _controller = Completer();
 
-  static final CameraPosition _kGooglePlex =
-      const CameraPosition(target: LatLng(23.798393, 90.333131), zoom: 14);
+  static const CameraPosition _kGooglePlex =
+  CameraPosition(target: LatLng(23.798393, 90.333131), zoom: 14);
 
-  static final CameraPosition _kLake = CameraPosition(
-
+  static const CameraPosition _kLake = CameraPosition(
       target: LatLng(23.7546655,90.3914849),
-      
       zoom: 19.151926040649414);
+
+  @override
+  void initState() {
+    _marker.addAll(_list);
+    // TODO: implement initState
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: GoogleMap(
           mapType: mapType,
+          markers: Set<Marker>.of(_marker),
           initialCameraPosition: _kGooglePlex,
           myLocationEnabled: true,
           onMapCreated: (GoogleMapController controller) {

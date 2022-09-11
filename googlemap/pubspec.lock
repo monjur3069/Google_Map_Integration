@@ -62,6 +62,13 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.0"
+  flutter_geocoder:
+    dependency: "direct main"
+    description:
+      name: flutter_geocoder
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.2.2-nullsafety"
   flutter_lints:
     dependency: "direct dev"
     description:

@@ -37,6 +37,7 @@ dependencies:
   google_maps_flutter:
   image_picker:
   flutter_geocoder: ^0.2.2-nullsafety
+  geocoding:
 
 dev_dependencies:
   flutter_test:
